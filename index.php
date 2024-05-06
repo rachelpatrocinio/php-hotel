@@ -38,10 +38,10 @@
         ],
     ];
 
-    // var_dump($_GET);
+    var_dump($_GET);
     $park = isset($_GET["park"])? $_GET["park"] : '';
-    $voting = isset($_GET["voting"])? intval($_GET["voting"]) : '';
-    // var_dump($park);
+    $voting = isset($_GET["voting"])? $_GET["voting"] : '';
+    var_dump($voting);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +66,14 @@
                     </select>
 
                     <label for="voting">VOTE</label>
-                    <input name="voting" type="number">
+                    <select name="voting" id="voting">
+                        <option value="all">...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </div>
 
                 <button class="btn btn-primary">SEARCH HOTEL</button>
@@ -96,7 +103,7 @@
 
                    
                         <tr class="
-                            <?php echo $park === 'yes' && $parking === false || $park === 'no' && $parking === true || $voting !== $vote?  'd-none' : '';
+                            <?php echo $park === 'yes' && $parking === false || $park === 'no' && $parking === true || $voting !== 'all' && intval($voting) !== $vote ? 'd-none' : '';
                             ?>">
                             <td><?php echo $name?></td>
                             <td><?php echo $description?></td>
