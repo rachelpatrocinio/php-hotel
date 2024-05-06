@@ -43,6 +43,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c473752e7c.js" crossorigin="anonymous"></script>
     <title>php-hotel</title>
 </head>
 <body>
@@ -70,15 +71,22 @@
                         $vote = $hotel["vote"];
                         $distance = $hotel["distance_to_center"];
                     ?>
-
                         <tr>
                             <td><?php echo $name?></td>
                             <td><?php echo $description?></td>
-                            <td><?php echo $parking?></td>
-                            <td><?php echo $vote?></td>
-                            <td><?php echo $distance?></td>
+                            <td class="text-center">
+                                <?php 
+                                    if($parking === true){
+                                    echo '<i class="fa-solid fa-x text-success"></i>';
+                                    }
+                                    else{
+                                        echo '<i class="fa-solid fa-check text-danger"></i>';
+                                    }
+                                ?>
+                            </td>
+                            <td class="text-center"><?php echo $vote?></td>
+                            <td class="text-center"><?php echo $distance?></td>
                         </tr>
-
                     <?php
                     }
                     ?>
