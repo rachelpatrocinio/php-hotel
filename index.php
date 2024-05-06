@@ -1,4 +1,5 @@
 <?php
+
     $hotels = [
         [
             'name' => 'Hotel Belvedere',
@@ -36,6 +37,10 @@
             'distance_to_center' => 50
         ],
     ];
+
+    // var_dump($_GET);
+    $park = $_GET["park"];
+    // var_dump($park);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,15 +54,25 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <table class="table">
+        <div class="row pt-5">
+            <form>
+                <label>Parking</label>
+                <select name="park" id="parking">
+                    <option value="both">BOTH</option>
+                    <option value="yes">YES</option>
+                    <option value="no">NO</option>
+                </select>
+                <button class="btn btn-primary">SEARCH HOTEL</button>
+            </form>
+
+            <table class="table mt-3">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Parking</th>
-                        <th scope="col">Vote</th>
-                        <th scope="col">Distance</th>
+                        <th class="text-center" scope="col">Parking</th>
+                        <th class="text-center" scope="col">Vote</th>
+                        <th class="text-center" scope="col">Distance</th>
                     </tr>
                 </thead>
 
@@ -71,16 +86,22 @@
                         $vote = $hotel["vote"];
                         $distance = $hotel["distance_to_center"];
                     ?>
-                        <tr>
+
+                   
+                        <tr class="
+                            <?php 
+                            if($park === 'yes' && $parking === false){echo "d-none";};
+                            if($park === 'no' && $parking === true){echo "d-none";};
+                            ?>">
                             <td><?php echo $name?></td>
                             <td><?php echo $description?></td>
                             <td class="text-center">
                                 <?php 
                                     if($parking === true){
-                                    echo '<i class="fa-solid fa-x text-success"></i>';
+                                    echo '<i class="fa-solid fa-check text-success"></i>';
                                     }
                                     else{
-                                        echo '<i class="fa-solid fa-check text-danger"></i>';
+                                        echo '<i class="fa-solid fa-x text-danger"></i>';
                                     }
                                 ?>
                             </td>
