@@ -38,10 +38,10 @@
         ],
     ];
 
-    var_dump($_GET);
+    // var_dump($_GET);
     $park = isset($_GET["park"])? $_GET["park"] : '';
     $voting = isset($_GET["voting"])? $_GET["voting"] : '';
-    var_dump($voting);
+    // var_dump($voting);
 ?>
 <!DOCTYPE html>
 <html lang="en">
