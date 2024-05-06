@@ -44,5 +44,15 @@
         $parking = $hotel["parking"];
         $vote = $hotel["vote"];
         $distance = $hotel["distance_to_center"];
+
+        ?>
+        <ul>
+            <li> <?php echo $name; ?></li>
+            <li> <?php echo $description; ?></li>
+            <li> <?php echo $parking; ?></li>
+            <li> <?php echo $vote; ?></li>
+            <li> <?php echo $distance; ?></li>
+        </ul>
+        <?php
     }
 ?>
