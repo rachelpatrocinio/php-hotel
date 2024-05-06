@@ -39,7 +39,8 @@
     ];
 
     // var_dump($_GET);
-    $park = $_GET["park"];
+    $park = isset($_GET["park"])? $_GET["park"] : '';
+    $voting = isset($_GET["voting"])? intval($_GET["voting"]) : '';
     // var_dump($park);
 ?>
 <!DOCTYPE html>
@@ -55,17 +56,23 @@
 
     <div class="container">
         <div class="row pt-5">
-            <form>
-                <label>Parking</label>
-                <select name="park" id="parking">
-                    <option value="both">BOTH</option>
-                    <option value="yes">YES</option>
-                    <option value="no">NO</option>
-                </select>
+            <form class="d-flex justify-content-between">
+                <div>
+                    <label for="park">PARKING</label>
+                    <select name="park" id="parking" class="me-5">
+                        <option value="both">BOTH</option>
+                        <option value="yes">YES</option>
+                        <option value="no">NO</option>
+                    </select>
+
+                    <label for="voting">VOTE</label>
+                    <input name="voting" type="number">
+                </div>
+
                 <button class="btn btn-primary">SEARCH HOTEL</button>
             </form>
 
-            <table class="table mt-3">
+            <table class="table mt-5">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -89,9 +96,7 @@
 
                    
                         <tr class="
-                            <?php 
-                            if($park === 'yes' && $parking === false){echo "d-none";};
-                            if($park === 'no' && $parking === true){echo "d-none";};
+                            <?php echo $park === 'yes' && $parking === false || $park === 'no' && $parking === true || $voting !== $vote?  'd-none' : '';
                             ?>">
                             <td><?php echo $name?></td>
                             <td><?php echo $description?></td>
