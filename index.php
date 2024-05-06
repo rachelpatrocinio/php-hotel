@@ -50,35 +50,39 @@
     <div class="container">
         <div class="row">
             <table class="table">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Parking</th>
-                    <th scope="col">Vote</th>
-                    <th scope="col">Distance</th>
-                </tr>
-
-                <?php
-                for($i = 0; $i < count($hotels); $i++){
-                    $hotel = $hotels[$i];
-                    $name = $hotel["name"];
-                    $description = $hotel["description"];
-                    $parking = $hotel["parking"];
-                    $vote = $hotel["vote"];
-                    $distance = $hotel["distance_to_center"];
-                ?>
-
+                <thead>
                     <tr>
-                        <td><?php echo $name?></td>
-                        <td><?php echo $description?></td>
-                        <td><?php echo $parking?></td>
-                        <td><?php echo $vote?></td>
-                        <td><?php echo $distance?></td>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Parking</th>
+                        <th scope="col">Vote</th>
+                        <th scope="col">Distance</th>
                     </tr>
+                </thead>
 
-                <?php
-                }
-                ?>
+                <tbody>
+                    <?php
+                    for($i = 0; $i < count($hotels); $i++){
+                        $hotel = $hotels[$i];
+                        $name = $hotel["name"];
+                        $description = $hotel["description"];
+                        $parking = $hotel["parking"];
+                        $vote = $hotel["vote"];
+                        $distance = $hotel["distance_to_center"];
+                    ?>
+
+                        <tr>
+                            <td><?php echo $name?></td>
+                            <td><?php echo $description?></td>
+                            <td><?php echo $parking?></td>
+                            <td><?php echo $vote?></td>
+                            <td><?php echo $distance?></td>
+                        </tr>
+
+                    <?php
+                    }
+                    ?>
+                </tbody>
             </table>
         </div>
     </div>
