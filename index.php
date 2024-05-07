@@ -39,8 +39,8 @@
     ];
 
     // var_dump($_GET);
-    $park = isset($_GET["park"])? $_GET["park"] : '';
-    $voting = isset($_GET["voting"])? $_GET["voting"] : '';
+    $park = isset($_GET["park"])? $_GET["park"] : 'both';
+    $voting = isset($_GET["voting"])? $_GET["voting"] : 'all';
     // var_dump($voting);
 ?>
 <!DOCTYPE html>
