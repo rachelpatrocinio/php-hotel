@@ -91,6 +91,7 @@
                 </thead>
 
                 <tbody>
+
                     <?php
                     for($i = 0; $i < count($hotels); $i++){
                         $hotel = $hotels[$i];
@@ -101,28 +102,29 @@
                         $distance = $hotel["distance_to_center"];
                     ?>
 
-                   
-                        <tr class="
-                            <?php echo $park === 'yes' && $parking === false || $park === 'no' && $parking === true || $voting !== 'all' && intval($voting) !== $vote ? 'd-none' : '';
-                            ?>">
-                            <td><?php echo $name?></td>
-                            <td><?php echo $description?></td>
-                            <td class="text-center">
-                                <?php 
-                                    if($parking === true){
-                                    echo '<i class="fa-solid fa-check text-success"></i>';
-                                    }
-                                    else{
-                                        echo '<i class="fa-solid fa-x text-danger"></i>';
-                                    }
-                                ?>
-                            </td>
-                            <td class="text-center"><?php echo $vote?></td>
-                            <td class="text-center"><?php echo $distance?></td>
-                        </tr>
+                    <tr class="
+                        <?php echo $park === 'yes' && $parking === false || $park === 'no' && $parking === true || $voting !== 'all' && intval($voting) !== $vote ? 'd-none' : '';
+                        ?>">
+                        <td><?php echo $name?></td>
+                        <td><?php echo $description?></td>
+                        <td class="text-center">
+                            <?php 
+                                if($parking === true){
+                                echo '<i class="fa-solid fa-check text-success"></i>';
+                                }
+                                else{
+                                    echo '<i class="fa-solid fa-x text-danger"></i>';
+                                }
+                            ?>
+                        </td>
+                        <td class="text-center"><?php echo $vote?></td>
+                        <td class="text-center"><?php echo $distance?></td>
+                    </tr>
+
                     <?php
                     }
                     ?>
+                    
                 </tbody>
             </table>
         </div>
