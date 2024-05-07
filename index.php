@@ -61,18 +61,18 @@
                     <label for="park">PARKING</label>
                     <select name="park" id="parking" class="me-5">
                         <option value="both">BOTH</option>
-                        <option value="yes">YES</option>
-                        <option value="no">NO</option>
+                        <option <?= $park === 'yes' ? 'selected' : '' ?> value="yes">YES</option>
+                        <option <?= $park === 'no' ? 'selected' : '' ?> value="no">NO</option>
                     </select>
 
                     <label for="voting">VOTE</label>
                     <select name="voting" id="voting">
                         <option value="all">...</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option <?= $voting === '1' ? 'selected' : '' ?> value="1">1</option>
+                        <option <?= $voting === '2' ? 'selected' : '' ?> value="2">2</option>
+                        <option <?= $voting === '3' ? 'selected' : '' ?> value="3">3</option>
+                        <option <?= $voting === '4' ? 'selected' : '' ?> value="4">4</option>
+                        <option <?= $voting === '5' ? 'selected' : '' ?> value="5">5</option>
                     </select>
                 </div>
 
@@ -109,7 +109,8 @@
                             $voting !== 'all' && 
                             intval($voting) !== $vote 
                             ? 'd-none' : '';
-                        ?>">
+                        ?>
+                    ">
                         <td><?php echo $name?></td>
                         <td><?php echo $description?></td>
                         <td class="text-center">
