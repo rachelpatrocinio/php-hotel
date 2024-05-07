@@ -103,7 +103,12 @@
                     ?>
 
                     <tr class="
-                        <?php echo $park === 'yes' && $parking === false || $park === 'no' && $parking === true || $voting !== 'all' && intval($voting) !== $vote ? 'd-none' : '';
+                        <?php echo 
+                            $park === 'yes' && $parking === false || 
+                            $park === 'no' && $parking === true || 
+                            $voting !== 'all' && 
+                            intval($voting) !== $vote 
+                            ? 'd-none' : '';
                         ?>">
                         <td><?php echo $name?></td>
                         <td><?php echo $description?></td>
@@ -124,7 +129,7 @@
                     <?php
                     }
                     ?>
-                    
+
                 </tbody>
             </table>
         </div>
